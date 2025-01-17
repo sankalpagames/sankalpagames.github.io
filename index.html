@@ -1,7 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sankalpa Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    img {
+      width: 306px;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      img {
+      width: 200px;
+      }
+      h1::after {
+        content: 'Games for All. Adventures for You';
+      }
+
+      h1 span {
+        display: none;
+      }
+    }
+
+    h1 {
+      font-size: 0.65em;
+      color: #000000;
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 0.65rem;
+      color: #000000;
+    }
+
+    .links a {
+      display: block;
+      margin: 15px 0;
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 0.65rem;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    .links a[href="terms.html"],
+    .links a[href="privacy.html"] {
+      color: #000;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <img src="img/logo.png" alt="Logo">
+  <h1><span>Games for Everyone. Fun for All</span></h1>
+  <p>2025</p>
+
+  <div class="links">
+    <a href="mailto:legal@sankalpagames.com">legal@sankalpagames.com</a>
+    <a href="mailto:career@sankalpagames.com">career@sankalpagames.com</a>
+    <a href="terms.html">Terms and Conditions</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
 </body>
 </html>
