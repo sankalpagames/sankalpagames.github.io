@@ -113,7 +113,7 @@
 }
 
 @media (max-width: 767px) {
-  .game { padding: 128px 16px 80px; font-size: 16px; }
+  .game { padding: 128px 16px 160px; font-size: 16px; }
   .game-icon { width: 96px; height: 96px; }
   .game-tagline { font-size: 18px; }
   .game-video { width: min(280px, 72vw); margin-top: 32px; }
