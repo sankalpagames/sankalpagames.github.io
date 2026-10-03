@@ -1,0 +1,117 @@
+/* Game pages: a quiet centered column; only the title uses the display face */
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 160px 24px 280px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.game-label {
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.game-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+  border-radius: 22.5%;
+  object-fit: cover;
+}
+
+.game h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(56px, 7vw, 104px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.game-tagline {
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.game-about {
+  max-width: 480px;
+  margin-top: 24px;
+}
+
+.game-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  margin-top: 32px;
+}
+
+.game-links a { text-underline-offset: 0.2em; }
+
+.game-links a:hover { text-decoration: none; }
+
+/* Official store badges; Google's artwork has built-in padding, so it is drawn taller to match Apple's */
+.store-badges { align-items: center; gap: 8px; }
+.store-badges a { line-height: 0; }
+.badge-apple { height: 44px; width: auto; }
+.badge-google { height: 64px; width: auto; }
+
+/* TestFlight has no official badge: drawn to match Apple's */
+.badge-testflight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 14px 0 8px;
+  border: 1px solid #a6a6a6;
+  border-radius: 9px;
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-align: left;
+}
+
+.store-badges .badge-testflight { line-height: 1; }
+
+.badge-testflight img {
+  width: 28px;
+  height: 28px;
+  border-radius: 22.5%;
+}
+
+.badge-testflight span {
+  display: flex;
+  flex-direction: column;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.badge-testflight small {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Gameplay is recorded in portrait: shown at phone proportions */
+.game-video {
+  width: 280px;
+  height: auto;
+  margin-top: 48px;
+  border-radius: 24px;
+  background: #e5e5e5;
+}
+
+@media (max-width: 767px) {
+  .game { padding: 128px 16px 220px; font-size: 16px; }
+  .game-icon { width: 96px; height: 96px; }
+  .game-tagline { font-size: 18px; }
+  .game-video { width: min(280px, 72vw); margin-top: 32px; }
+}

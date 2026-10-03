@@ -1,0 +1,150 @@
+/* Shared by the landing page and game pages. Sizes follow the 1728px Figma frame. */
+
+/* Marion ships with macOS but can't be served on the web: use it when installed, Libre Caslon otherwise */
+@font-face {
+  font-family: 'Marion Local';
+  src: local('Marion Regular'), local('Marion-Regular'), local('Marion');
+}
+
+/* u = one design pixel scaled to the viewport width */
+:root {
+  --u: calc(100vw / 1728);
+  --display: 'Bebas Neue', Impact, sans-serif;
+  --serif: 'Marion Local', 'Libre Caslon Text', Georgia, serif;
+  --sans: 'Work Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body { overflow-x: hidden; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #000;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+p { margin: 0; }
+
+.text-24 {
+  font-size: calc(var(--u) * 24);
+  line-height: 1.5;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+/* Header */
+.site-header {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--u) * 56);
+}
+
+.site-header > * { position: absolute; }
+
+.brand {
+  left: calc(var(--u) * 40);
+  top: calc(var(--u) * 20);
+  line-height: 0;
+}
+
+.brand img {
+  width: calc(var(--u) * 36);
+  height: calc(var(--u) * 36);
+}
+
+.site-nav {
+  left: 50%;
+  top: calc(var(--u) * 20);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--u) * 16);
+}
+
+.site-nav a,
+.site-nav summary {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--u) * 4);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.site-nav sup {
+  font-size: calc(var(--u) * 14);
+  line-height: 2.26;
+  letter-spacing: -0.03em;
+  vertical-align: baseline;
+}
+
+.site-nav a:hover span,
+.site-nav summary:hover span,
+.games-menu[open] summary span { text-decoration: underline; }
+
+.face {
+  left: calc(var(--u) * 1591);
+  top: calc(var(--u) * 20);
+  letter-spacing: -0.03em;
+}
+
+/* Games dropdown */
+.games-menu { position: relative; }
+
+.games-menu summary { list-style: none; }
+.games-menu summary::-webkit-details-marker { display: none; }
+
+.games-menu ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: calc(var(--u) * 8) 0 0;
+  padding: calc(var(--u) * 12) calc(var(--u) * 16);
+  list-style: none;
+  background: #fff;
+  border: 1px solid #000;
+}
+
+.games-menu li a {
+  display: block;
+  padding: calc(var(--u) * 4) 0;
+}
+
+/* Fred peeks from the bottom-left corner of the viewport at all times and opens Landfill Planet */
+.fred {
+  position: fixed;
+  z-index: 1;
+  left: calc(var(--u) * 40);
+  bottom: calc(var(--u) * -133);
+  width: calc(var(--u) * 469);
+  line-height: 0;
+}
+
+.fred img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  :root { --u: calc(100vw / 900); }
+
+  .text-24 { font-size: 16px; }
+
+  .site-header { height: 76px; }
+  .brand { left: 16px; top: 12px; }
+  .brand img { width: 28px; height: 28px; }
+  .face { left: auto; right: 16px; top: 12px; }
+  .site-nav { top: 44px; left: 16px; transform: none; gap: 12px; }
+  .site-nav a, .site-nav summary { gap: 2px; }
+  .site-nav sup { font-size: 10px; }
+  .games-menu ul { margin-top: 6px; padding: 8px 12px; }
+  .games-menu li a { padding: 4px 0; }
+}
+

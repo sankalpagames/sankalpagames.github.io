@@ -4,82 +4,274 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sankalpa Games</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Sankalpa Games is a creative studio building games for everyone.">
   <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Caslon+Text&family=Work+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
   <style>
-    body {
+    .frame {
+      position: relative;
+      height: calc(var(--u) * 1643);
+    }
+
+    .frame > * { position: absolute; }
+
+    .motto {
+      left: calc(var(--u) * 281);
+      top: calc(var(--u) * 233);
+    }
+
+    .logo {
+      left: calc(50% - var(--u) * 551);
+      top: calc(var(--u) * 181);
       margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #ffffff;
-      text-align: center;
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: calc(var(--u) * 380);
+      line-height: 1.5;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
     }
 
-    img {
-      width: 464px;
-      height: auto;
-    }
-
-    @media (max-width: 768px) {
-      img {
-      width: 306px;
-      }
-      h1::after {
-        content: 'Games for All. Adventures for You';
-      }
-
-      h1 span {
-        display: none;
-      }
-    }
-
-    h1 {
-      font-size: 1rem;
-      color: #000000;
-      margin-bottom: 20px;
+    .tagline {
+      left: calc(var(--u) * 523);
+      top: calc(var(--u) * 619);
+      width: calc(var(--u) * 682);
+      height: calc(var(--u) * 451);
+      margin: 0;
       font-weight: 400;
     }
 
-    p {
-      font-size: 1rem;
-      color: #000000;
+    .tagline .lead {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: flex-end;
+      gap: calc(var(--u) * 24);
+      white-space: nowrap;
     }
 
-    .links a {
+    .tagline .games {
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: calc(var(--u) * 100);
+      line-height: 1.2;
+      letter-spacing: -0.05em;
+    }
+
+    .tagline .serif {
+      font-family: var(--serif);
+      font-size: calc(var(--u) * 120);
+      letter-spacing: -0.04em;
+    }
+
+    .tagline .lead .serif { line-height: 0.86; }
+
+    .tagline .rest {
+      position: absolute;
+      left: 50%;
+      top: calc(var(--u) * 127);
+      transform: translateX(-50%);
       display: block;
-      margin: 15px 0;
-      text-decoration: none;
-      color: #007BFF;
-      font-size: 1rem;
+      line-height: 0.9;
+      text-align: center;
+      white-space: nowrap;
     }
 
-    .links a:hover {
+    .tagline .everyone {
       text-decoration: underline;
+      text-decoration-thickness: calc(var(--u) * 2);
+      text-underline-offset: 0.16em;
     }
 
-    .links a[href="terms/"],
-    .links a[href="privacy/"] {
-      color: #000;
-      text-decoration: underline;
+    .info {
+      top: calc(var(--u) * 1354);
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--u) * 32);
+      font-size: calc(var(--u) * 20);
+      line-height: 1.2;
+      letter-spacing: -0.04em;
     }
 
+    .info h2 {
+      margin: 0;
+      font-size: inherit;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+    }
+
+    .legal {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: calc(var(--u) * 4);
+      font-size: calc(var(--u) * 16);
+      color: #8c8c8c;
+    }
+
+    .legal a { text-decoration-color: #c4c4c4; }
+
+    .legal a:hover { color: #000; }
+
+    #about { left: calc(var(--u) * 866); width: calc(var(--u) * 360); }
+    #contacts { left: calc(var(--u) * 1348); width: calc(var(--u) * 340); }
+
+    /* Missioners crate stands on the bottom edge of the page */
+    .crate {
+      left: calc(var(--u) * 600);
+      bottom: calc(var(--u) * 48);
+      width: calc(var(--u) * 190);
+      line-height: 0;
+    }
+
+    .crate img { width: 100%; height: auto; }
+
+    /* Planet Merge 2 planet: parked off-screen, js/site.js flies it across every few seconds.
+       The layer drifts with the page at a fraction of the scroll speed, so the planet lags behind */
+    .flyby-layer {
+      position: fixed;
+      z-index: 1;
+      inset: 0;
+      pointer-events: none;
+      transform: translateY(var(--parallax, 0px));
+    }
+
+    .flyby {
+      position: absolute;
+      pointer-events: auto;
+      top: 0;
+      left: 0;
+      width: calc(var(--u) * 130);
+      line-height: 0;
+      transform: translate(-100vw, -100vh);
+    }
+
+    /* The Figma export carries the frame's dark fill; the planet fills the square edge to edge */
+    .flyby img {
+      width: 100%;
+      height: auto;
+      clip-path: circle(49.6%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flyby {
+        left: auto;
+        right: calc(var(--u) * -50);
+        top: 40vh;
+        transform: none;
+      }
+    }
+
+    /* The frame has no phone layout: below 768px keep its typography and let the blocks stack */
+    @media (max-width: 767px) {
+      .frame {
+        height: auto;
+        min-height: 100vh;
+        padding: 96px 16px calc(var(--u) * 420);
+      }
+
+      .frame > * {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+      }
+
+      .frame > .site-header { position: absolute; top: 0; left: 0; }
+
+      .motto { font-size: 14px; }
+
+      .logo {
+        font-size: calc((100vw - 32px) * 380 / 1102);
+        line-height: 1.15;
+        text-align: center;
+      }
+
+      .tagline {
+        width: auto;
+        height: auto;
+        text-align: center;
+      }
+      .tagline .lead,
+      .tagline .rest {
+        position: static;
+        transform: none;
+        justify-content: center;
+      }
+
+      .info {
+        margin-top: 56px;
+        gap: 12px;
+        font-size: 16px;
+      }
+      #about, #contacts { left: auto; width: auto; }
+      #contacts { margin-top: 32px; }
+      .legal { gap: 4px; font-size: 14px; }
+
+      .frame > .crate {
+        position: absolute;
+        left: auto;
+        right: 16px;
+        bottom: 24px;
+        width: 90px;
+      }
+      .flyby { width: 64px; }
+    }
   </style>
 </head>
 <body>
-  <img src="img/logo.png" alt="Logo">
-  <h1><span>Games for Everyone. Fun for All</span></h1>
-  <p>2025</p>
+  <div class="frame">
+    <header class="site-header">
+      <a class="brand" href="./"><img src="img/logo-circle.png" alt="Sankalpa" width="160" height="160"></a>
 
-  <div class="links">
-    <a href="mailto:legal@sankalpagames.com">legal@sankalpagames.com</a>
-    <a href="mailto:career@sankalpagames.com">career@sankalpagames.com</a>
-    <a href="terms/">Terms and Conditions</a>
-    <a href="privacy/">Privacy Policy</a>
+      <nav class="site-nav text-24">
+        <details class="games-menu">
+          <summary><sup>(1)</sup><span>Games,</span></summary>
+          <ul>
+            <li><a href="landfill-planet/">Landfill Planet</a></li>
+            <li><a href="planet-merge-2/">Planet Merge 2</a></li>
+            <li><a href="https://sankalpagames.com/missioners/">Missioners</a></li>
+          </ul>
+        </details>
+        <a href="#about"><sup>(2)</sup><span>About,</span></a>
+        <a href="#contacts"><sup>(3)</sup><span>Contacts</span></a>
+      </nav>
+
+      <span class="face text-24" aria-hidden="true">ヽ(•‿•)ノ</span>
+    </header>
+
+    <p class="motto text-24">“resolve, intention”</p>
+
+    <h1 class="logo">SANKALPA</h1>
+
+    <p class="tagline">
+      <span class="lead"><span class="games">(Games)</span><span class="serif">is a</span></span>
+      <span class="rest serif">creative studio<br>building games<br>for <span class="everyone">everyone</span></span>
+    </p>
+
+    <section class="info" id="about">
+      <h2>(About)</h2>
+      <p>We craft honest and inspiring gaming stories that unleash the potential within every player. Our intention is to bring joy and freedom into gaming experience, searching for meaningful interaction — something that leaves a lasting impact for all those who are ready to dream and create.</p>
+    </section>
+
+    <section class="info" id="contacts">
+      <h2>(Contacts)</h2>
+      <p>If you have a project in mind, want to explore opportunities together, or just fancy a chat feel free to contact us at <a href="mailto:dev@sankalpagames.com">dev@sankalpagames.com</a></p>
+      <p class="legal"><a href="terms/">Terms and Conditions</a><a href="privacy/">Privacy Policy</a></p>
+    </section>
+
+    <a class="crate" href="https://sankalpagames.com/missioners/" title="Missioners"><img src="img/games/crate.webp" alt="Missioners" width="229" height="236"></a>
   </div>
+
+  <a class="fred" href="landfill-planet/" title="Landfill Planet"><img src="img/fred.webp" alt="Landfill Planet" width="940" height="940"></a>
+  <div class="flyby-layer">
+    <a class="flyby" href="planet-merge-2/" title="Planet Merge 2"><img src="img/games/planet.webp" alt="Planet Merge 2" width="520" height="520"></a>
+  </div>
+  <script src="js/site.js"></script>
 </body>
 </html>
