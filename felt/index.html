@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felt — дневник эмоций и мыслей</title>
+  <meta name="description" content="Замечай, что чувствуешь, и спокойно разбирай мысли, которые за этим стоят. Бета-версия для iPhone.">
+  <meta property="og:title" content="Felt — дневник эмоций и мыслей">
+  <meta property="og:description" content="Бета-версия для iPhone в TestFlight.">
+  <meta property="og:image" content="https://sankalpagames.com/felt/icon.png">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --muted: #6e6e73;
+      --line: rgba(0,0,0,.1); --accent: #0071e3; --on-accent: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #111113; --surface: #1c1c1f; --text: #f2f2f5; --muted: #a1a1a8; --line: rgba(255,255,255,.12); --accent: #2997ff; --on-accent: #fff; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 'Inter', -apple-system, system-ui, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; padding: 56px 20px 40px; }
+    .head { display: flex; gap: 18px; align-items: center; }
+    .head img { width: 76px; height: 76px; border-radius: 17px; }
+    h1 { font-size: 30px; font-weight: 600; margin: 0; }
+    .sub { color: var(--muted); margin: 0; }
+    .lead { font-size: 22px; line-height: 1.45; margin: 28px 0 8px; }
+    .muted { color: var(--muted); }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0 0; }
+    .btn { display: inline-block; text-decoration: none; border-radius: 12px; padding: 12px 20px; font-weight: 500; }
+    .btn.primary { background: var(--accent); color: var(--on-accent); }
+    .btn.ghost { border: 1px solid var(--line); color: var(--text); }
+    section { margin-top: 48px; }
+    .k { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; font-weight: 500; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .cell { background: var(--surface); border-radius: 14px; padding: 16px; }
+    .cell b { display: block; font-weight: 600; margin-bottom: 4px; }
+    .cell span { color: var(--muted); font-size: 15px; }
+    ul.checks { list-style: none; padding: 0; margin: 12px 0 0; color: var(--muted); }
+    ul.checks li::before { content: "✓"; color: var(--accent); margin-right: 10px; }
+    ol { padding-left: 22px; color: var(--muted); margin: 0; }
+    ol li { margin: 4px 0; }
+    a { color: var(--accent); }
+    footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 14px; color: var(--muted); }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+<main>
+  <div class="head">
+    <img src="icon.png" alt="">
+    <div>
+      <h1>Felt</h1>
+      <p class="sub">Дневник эмоций и мыслей</p>
+    </div>
+  </div>
+
+  <p class="lead">Замечай, что чувствуешь, и спокойно разбирай мысли, которые за этим стоят.</p>
+  <p class="muted">Felt сейчас в открытом тестировании. Приложение бесплатное, работает без интернета и без регистрации.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://testflight.apple.com/join/Ny2FVkMc">Установить бету в TestFlight</a>
+    <a class="btn ghost" href="#install">Как установить</a>
+  </div>
+
+  <section>
+    <p class="k">Что умеет</p>
+    <div class="grid">
+      <div class="cell"><b>Колесо эмоций</b><span>Найди точное название тому, что чувствуешь: от лёгкой досады до ярости.</span></div>
+      <div class="cell"><b>Запись за минуту</b><span>Что произошло и какая мысль промелькнула — коротко, в моменте.</span></div>
+      <div class="cell"><b>Разбор мысли</b><span>Позже, в спокойной обстановке: пять шагов с подсказками и примерами.</span></div>
+      <div class="cell"><b>История</b><span>Какие эмоции бывают чаще и как меняются мысли со временем.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="k">Если ты работаешь с психологом</p>
+    <p>Можно делиться записями с психологом: он покажет QR-код или пришлёт ссылку, ты подключишься в приложении.</p>
+    <ul class="checks">
+      <li>Уходят только записи, которые ты отправишь сам</li>
+      <li>Приватные записи и черновики остаются на телефоне</li>
+      <li>Отключиться можно в любой момент</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="k">Психологам и клиникам</p>
+    <p>Для специалистов есть веб-кабинет: записи клиентов за выбранный период, статистика по эмоциям и разборам. Хотите попробовать с клиентами — напишите нам.</p>
+    <div class="cta"><a class="btn ghost" href="mailto:legal@sankalpagames.com?subject=Felt">Написать</a></div>
+  </section>
+
+  <section id="install">
+    <p class="k">Как установить бету</p>
+    <ol>
+      <li>Установи <a href="https://apps.apple.com/app/testflight/id899247664">TestFlight</a> из App Store — это приложение Apple для тестовых версий.</li>
+      <li>Открой ссылку <a href="https://testflight.apple.com/join/Ny2FVkMc">«Установить бету»</a> на iPhone.</li>
+      <li>В TestFlight нажми «Установить». Обновления будут приходить сами.</li>
+    </ol>
+    <p class="muted" style="margin-top:12px">Нужен iPhone с iOS 17 или новее.</p>
+  </section>
+
+  <footer>
+    <span>Sankalpa</span>
+    <span><a href="privacy/">Политика конфиденциальности</a> · <a href="mailto:legal@sankalpagames.com?subject=Felt">Обратная связь</a></span>
+  </footer>
+</main>
+</body>
+</html>
