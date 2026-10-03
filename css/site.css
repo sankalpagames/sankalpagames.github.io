@@ -146,5 +146,13 @@ p { margin: 0; }
   .site-nav sup { font-size: 10px; }
   .games-menu ul { margin-top: 6px; padding: 8px 12px; }
   .games-menu li a { padding: 4px 0; }
+
+  /* On phones Fred peeks in from the left edge instead of the bottom */
+  .fred {
+    left: -38px;
+    bottom: 16vh;
+    width: 120px;
+    transform: rotate(90deg);
+  }
 }
 
