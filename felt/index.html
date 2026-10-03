@@ -35,7 +35,8 @@
     .btn.ghost { border: 1px solid var(--line); color: var(--text); }
     section { margin-top: 48px; }
     .k { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; font-weight: 500; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 520px) { .grid { grid-template-columns: minmax(0, 1fr); } }
     .cell { background: var(--surface); border-radius: 14px; padding: 16px; }
     .cell b { display: block; font-weight: 600; margin-bottom: 4px; }
     .cell span { color: var(--muted); font-size: 15px; }
@@ -46,23 +47,24 @@
     a { color: var(--accent); }
     footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 14px; color: var(--muted); }
     footer a { color: var(--muted); }
+    .login { align-self: flex-start; font-size: 15px; text-decoration: none; white-space: nowrap; }
   </style>
 </head>
 <body>
 <main>
   <div class="head">
     <img src="icon.png" alt="">
-    <div>
+    <div style="flex:1">
       <h1>Felt</h1>
       <p class="sub">Дневник эмоций и мыслей</p>
     </div>
+    <a class="login" href="https://felt-fsc7fybsh3g7gnct.westus3-01.azurewebsites.net/">Вход для клиник</a>
   </div>
 
   <p class="lead">Замечай, что чувствуешь, и спокойно разбирай мысли, которые за этим стоят.</p>
   <p class="muted">Felt сейчас в открытом тестировании. Приложение бесплатное, работает без интернета и без регистрации.</p>
   <div class="cta">
     <a class="btn primary" href="https://testflight.apple.com/join/Ny2FVkMc">Установить бету в TestFlight</a>
-    <a class="btn ghost" href="#install">Как установить</a>
   </div>
 
   <section>
@@ -88,7 +90,10 @@
   <section>
     <p class="k">Психологам и клиникам</p>
     <p>Для специалистов есть веб-кабинет: записи клиентов за выбранный период, статистика по эмоциям и разборам. Хотите попробовать с клиентами — напишите нам.</p>
-    <div class="cta"><a class="btn ghost" href="mailto:legal@sankalpagames.com?subject=Felt">Написать</a></div>
+    <div class="cta">
+      <a class="btn primary" href="https://felt-fsc7fybsh3g7gnct.westus3-01.azurewebsites.net/">Вход для тестовой клиники</a>
+      <a class="btn ghost" href="mailto:legal@sankalpagames.com?subject=Felt">Написать</a>
+    </div>
   </section>
 
   <section id="install">
@@ -103,7 +108,7 @@
 
   <footer>
     <span>Sankalpa</span>
-    <span><a href="privacy/">Политика конфиденциальности</a> · <a href="mailto:legal@sankalpagames.com?subject=Felt">Обратная связь</a></span>
+    <span><a href="mailto:legal@sankalpagames.com?subject=Felt">Обратная связь</a></span>
   </footer>
 </main>
 </body>
